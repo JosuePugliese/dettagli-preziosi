@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  /* La tua palette personalizzata elegante/neutra */
+  --color-rose-50: #fdf8f7;
+  --color-rose-100: #faebe8;
+  --color-rose-400: #e5989b;
+  --color-rose-500: #d57a7e;
+  --color-charcoal-800: #333333;
+  --color-charcoal-900: #1a1a1a;
+  
+  /* Font predefinito stile magazine */
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+/* Stile base opzionale per il body */
+@layer base {
+  body {
+    @apply bg-rose-50 text-charcoal-800 antialiased;
+  }
+}

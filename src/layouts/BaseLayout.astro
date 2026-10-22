@@ -1,0 +1,124 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Recensioni curate e consigli di stile su gioielleria minimalista, orologi e accessori d'alta gamma.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="it" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Dettagli Preziosi</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={`${title} | Dettagli Preziosi`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body
+    class="bg-rose-50/30 text-stone-900 antialiased selection:bg-rose-200 selection:text-stone-900 flex flex-col min-h-screen font-sans"
+  >
+    <!-- Navbar -->
+    <header
+      class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200/60 transition-colors"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <a
+          href="/"
+          class="text-2xl font-serif tracking-widest uppercase text-stone-900 hover:text-stone-600 transition-colors"
+        >
+          Dettagli Preziosi
+        </a>
+
+        <nav
+          aria-label="Navigazione principale"
+          class="hidden md:flex items-center gap-8 text-xs font-medium tracking-widest uppercase text-stone-600"
+        >
+          <a href="#selezione" class="hover:text-stone-950 transition-colors"
+            >Selezione</a
+          >
+          <a href="#recensioni" class="hover:text-stone-950 transition-colors"
+            >Gioielli</a
+          >
+          <a href="#orologi" class="hover:text-stone-950 transition-colors"
+            >Orologi</a
+          >
+          <a href="#guida" class="hover:text-stone-950 transition-colors"
+            >Guida alla scelta</a
+          >
+        </nav>
+
+        <a
+          href="#selezione"
+          class="md:hidden text-xs font-medium tracking-widest uppercase text-stone-900 border border-stone-300 px-3 py-2 hover:bg-stone-900 hover:text-white transition-colors"
+        >
+          Esplora
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-200/80 mt-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-stone-100"
+        >
+          <div>
+            <span
+              class="text-lg font-serif tracking-widest uppercase text-stone-900"
+              >Dettagli Preziosi</span
+            >
+            <p class="text-xs text-stone-500 mt-1 max-w-sm">
+              Ricerca estetica e recensioni indipendenti dedicate al mondo
+              dell'alta bigiotteria, gioielleria e orologeria.
+            </p>
+          </div>
+          <div
+            class="flex gap-6 text-xs tracking-wider uppercase text-stone-500"
+          >
+            <a href="/privacy" class="hover:text-stone-900 transition-colors"
+              >Privacy</a
+            >
+            <a href="/cookie" class="hover:text-stone-900 transition-colors"
+              >Cookie</a
+            >
+            <a href="/contatti" class="hover:text-stone-900 transition-colors"
+              >Contatti</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-stone-400"
+        >
+          <p>
+            &copy; {new Date().getFullYear()} Dettagli Preziosi. Tutti i diritti riservati.
+          </p>
+          <p class="text-center sm:text-right max-w-md">
+            In qualità di Affiliato Amazon, questo sito riceve un guadagno dagli
+            acquisti idonei effettuati tramite i link presenti, senza alcun
+            costo aggiuntivo per l'utente.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
